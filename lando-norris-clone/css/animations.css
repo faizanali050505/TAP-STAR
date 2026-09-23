@@ -1,0 +1,284 @@
+/* ============================================
+   TAPSTAR — Animation Keyframes & Transitions
+   ============================================ */
+
+/*  Laser Scanning Beam  */
+@keyframes scanLaser {
+  0% {
+    top: 6%;
+    opacity: 0;
+    transform: scaleX(0.8);
+  }
+  15% {
+    opacity: 1;
+    transform: scaleX(1);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 1), 0 0 30px rgba(37, 99, 235, 0.8);
+  }
+  85% {
+    opacity: 1;
+    transform: scaleX(1);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 1), 0 0 30px rgba(37, 99, 235, 0.8);
+  }
+  100% {
+    top: 92%;
+    opacity: 0;
+    transform: scaleX(0.8);
+  }
+}
+
+/* ─── NFC Wave Pulse ─── */
+@keyframes nfcWave {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* ─── Hero Float ─── */
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes heroGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* ─── Marquee Scroll ─── */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ─── Rotate Spin ─── */
+@keyframes rotateSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Fade In Up ─── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Fade In Scale ─── */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ─── Shimmer Effect ─── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ─── Star Twinkle ─── */
+@keyframes starTwinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.95); }
+}
+
+/* ─── Pulse Glow ─── */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.6);
+  }
+}
+
+/* ─── Slide In Left ─── */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ─── Slide In Right ─── */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ─── Google Stripe Wave ─── */
+@keyframes stripeWave {
+  0% { transform: scaleX(0); transform-origin: left; }
+  50% { transform: scaleX(1); transform-origin: left; }
+  50.01% { transform-origin: right; }
+  100% { transform: scaleX(0); transform-origin: right; }
+}
+
+/* ─── QR Grid Build ─── */
+@keyframes qrBuild {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scanme-qr-inner span {
+  animation: qrBuild 0.3s ease forwards;
+  opacity: 0;
+}
+
+.scanme-qr-inner span:nth-child(1) { animation-delay: 0.05s; }
+.scanme-qr-inner span:nth-child(2) { animation-delay: 0.07s; }
+.scanme-qr-inner span:nth-child(3) { animation-delay: 0.09s; }
+.scanme-qr-inner span:nth-child(4) { animation-delay: 0.11s; }
+.scanme-qr-inner span:nth-child(5) { animation-delay: 0.13s; }
+.scanme-qr-inner span:nth-child(6) { animation-delay: 0.15s; }
+.scanme-qr-inner span:nth-child(7) { animation-delay: 0.17s; }
+.scanme-qr-inner span:nth-child(8) { animation-delay: 0.19s; }
+.scanme-qr-inner span:nth-child(9) { animation-delay: 0.21s; }
+.scanme-qr-inner span:nth-child(10) { animation-delay: 0.23s; }
+.scanme-qr-inner span:nth-child(n+11) { animation-delay: 0.25s; }
+.scanme-qr-inner span:nth-child(n+22) { animation-delay: 0.3s; }
+.scanme-qr-inner span:nth-child(n+33) { animation-delay: 0.35s; }
+.scanme-qr-inner span:nth-child(n+44) { animation-delay: 0.4s; }
+.scanme-qr-inner span:nth-child(n+55) { animation-delay: 0.45s; }
+.scanme-qr-inner span:nth-child(n+66) { animation-delay: 0.5s; }
+.scanme-qr-inner span:nth-child(n+77) { animation-delay: 0.55s; }
+.scanme-qr-inner span:nth-child(n+88) { animation-delay: 0.6s; }
+.scanme-qr-inner span:nth-child(n+99) { animation-delay: 0.65s; }
+.scanme-qr-inner span:nth-child(n+110) { animation-delay: 0.7s; }
+
+/* ─── Hover Transition Enhancements ─── */
+
+/* Product card image clip-path hover */
+.product-card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 22, 40, 0.6) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity var(--animation-default);
+}
+
+.product-card:hover .product-card-image::after {
+  opacity: 1;
+}
+
+/* Button ripple effect */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 10%);
+  transform: scale(10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.btn:active::after {
+  transform: scale(0);
+  opacity: 1;
+  transition: 0s;
+}
+
+/* Nav link underline animation */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity var(--duration-fast) ease;
+}
+
+.nav-link:hover::before {
+  opacity: 1;
+}
+
+/* Card shine effect on hover */
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.8s ease;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.product-card:hover::before {
+  left: 130%;
+}
+
+/* Step card icon bounce */
+.step-card:hover .step-number {
+  animation: pulseGlow 1s ease infinite;
+}
+
+/* ─── Smooth page load ─── */
+.page-loaded .hero-content > * {
+  animation: fadeInUp 0.8s var(--cubic-default) both;
+}
+
+.page-loaded .hero-content > *:nth-child(1) { animation-delay: 0.2s; }
+.page-loaded .hero-content > *:nth-child(2) { animation-delay: 0.35s; }
+.page-loaded .hero-content > *:nth-child(3) { animation-delay: 0.5s; }
+.page-loaded .hero-content > *:nth-child(4) { animation-delay: 0.65s; }
+.page-loaded .hero-content > *:nth-child(5) { animation-delay: 0.8s; }
+.page-loaded .hero-content > *:nth-child(6) { animation-delay: 0.95s; }
+
+.page-loaded .hero-image-wrap {
+  animation: fadeInScale 1s 0.5s var(--cubic-default) both;
+}
