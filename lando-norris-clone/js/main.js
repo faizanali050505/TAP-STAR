@@ -233,5 +233,73 @@ document.addEventListener('DOMContentLoaded', () => {
     marqueeTrack.innerHTML = items + items;
   }
 
+  // Seamless Loop for Testimonials
+  const reviewTracks = document.querySelectorAll('.marquee-track-reviews');
+  reviewTracks.forEach(track => {
+    const items = track.innerHTML;
+    track.innerHTML = items + items;
+  });
+
+  // ─── Products Carousel Logic ───
+  const track = document.getElementById('products-track');
+  const btnPrev = document.getElementById('prod-prev');
+  const btnNext = document.getElementById('prod-next');
+
+  if (track && btnPrev && btnNext) {
+    let currentIndex = 0;
+    const items = track.children;
+    const totalItems = items.length;
+    
+    const getItemsToShow = () => window.matchMedia('(max-width: 768px)').matches ? 1 : 3;
+
+    const updateCarousel = () => {
+      const itemsToShow = getItemsToShow();
+      const maxIndex = Math.max(0, totalItems - itemsToShow);
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
+      if (currentIndex < 0) currentIndex = 0;
+
+      track.style.transform = `translateX(-${currentIndex * (100 / itemsToShow)}%)`;
+
+      btnPrev.disabled = currentIndex === 0;
+      btnNext.disabled = currentIndex === maxIndex;
+      btnPrev.style.opacity = currentIndex === 0 ? '0.5' : '1';
+      btnNext.style.opacity = currentIndex === maxIndex ? '0.5' : '1';
+      btnPrev.style.cursor = currentIndex === 0 ? 'not-allowed' : 'pointer';
+      btnNext.style.cursor = currentIndex === maxIndex ? 'not-allowed' : 'pointer';
+    };
+
+    btnPrev.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    });
+
+    btnNext.addEventListener('click', () => {
+      const itemsToShow = getItemsToShow();
+      const maxIndex = Math.max(0, totalItems - itemsToShow);
+      if (currentIndex < maxIndex) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+
+    // Responsive update on resize
+    window.addEventListener('resize', () => {
+      const currentItemsToShow = getItemsToShow();
+      if (currentItemsToShow === 1) {
+        Array.from(items).forEach(item => {
+          item.style.flex = '0 0 100%';
+        });
+      } else {
+        Array.from(items).forEach(item => {
+          item.style.flex = '0 0 calc(33.333% - 1rem)';
+        });
+      }
+      updateCarousel();
+    });
+    window.dispatchEvent(new Event('resize'));
+  }
+
   console.log('⭐ TapStar — Tap. Scan. Grow. (Elevated & Fast)');
 });

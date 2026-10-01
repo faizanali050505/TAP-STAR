@@ -251,115 +251,216 @@
         <img src="assets/images/multiple-cards-new.webp" alt="TapStar NFC review cards collection">
       </div>
 
-      <div class="products-header reveal">
-        <div class="text-eyebrow text-gold" style="margin-bottom:0.75rem;">Shop Now</div>
-        <h2>Our <span class="serif-word">Products</span></h2>
-        <p>Premium NFC-enabled review cards designed for every business</p>
+      <div class="products-carousel-wrapper">
+        <div class="products-header reveal" style="display: flex; justify-content: space-between; align-items: flex-end; text-align: left; margin-bottom: 2rem;">
+          <div>
+            <div class="text-eyebrow text-gold" style="margin-bottom:0.75rem;">Shop Now</div>
+            <h2 style="margin: 0;">Our <span class="serif-word">Products</span></h2>
+            <p style="margin-top: 0.5rem; margin-bottom: 0;">Premium NFC-enabled review cards designed for every business</p>
+          </div>
+          <div class="products-carousel-controls" style="display: flex; gap: 0.5rem;">
+            <button id="prod-prev" class="carousel-btn" aria-label="Previous">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button id="prod-next" class="carousel-btn" aria-label="Next">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="products-carousel-viewport" style="overflow: hidden;">
+          <div class="products-carousel-track" id="products-track" style="display: flex; gap: 1.5rem; transition: transform 0.5s ease-in-out;">
+            <!-- Product 1 -->
+            <div class="product-card reveal delay-1" style="flex: 0 0 calc(33.333% - 1rem);">
+              <div class="product-image-container">
+                <div class="product-badge">Popular</div>
+                <img src="assets/images/new-card.webp" alt="TapStar NFC Review Card Standard">
+              </div>
+              
+              <div class="product-details">
+                <h3 class="product-title">NFC Review Card</h3>
+                <div class="product-price">PKR 1,500</div>
+                <div class="product-rating">
+                  <span class="star">★</span> 4.9 <span class="reviews">(120 reviews)</span>
+                </div>
+                
+                <ul class="product-feature-list">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Tap & Scan Ready</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Boost Google Reviews</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 2-3 Days Delivery</li>
+                </ul>
+                
+                <a href="https://wa.me/923274733604?text=Hello%20TapStar!%20I%20want%20to%20order%20the%20NFC%20Review%20Card%20Standard%20(PKR%201,500)." target="_blank" rel="noopener" class="product-order-btn">
+                  Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card reveal delay-2" style="flex: 0 0 calc(33.333% - 1rem);">
+              <div class="product-image-container">
+                <div class="product-badge" style="color: #f59e0b; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3);">Best Seller</div>
+                <img src="assets/images/final-3d-card.webp" alt="TapStar NFC Card with Stand">
+              </div>
+              
+              <div class="product-details">
+                <h3 class="product-title">Card + Stand</h3>
+                <div class="product-price">PKR 2,000</div>
+                <div class="product-rating">
+                  <span class="star">★</span> 5.0 <span class="reviews">(250 reviews)</span>
+                </div>
+                
+                <ul class="product-feature-list">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Premium Counter Display</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Maximum Visibility</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 2-3 Days Delivery</li>
+                </ul>
+                
+                <a href="https://wa.me/923274733604?text=Hello%20TapStar!%20I%20want%20to%20order%20the%20Card%20%2B%20Stand%20(PKR%202,000)." target="_blank" rel="noopener" class="product-order-btn">
+                  Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card reveal delay-3" style="flex: 0 0 calc(33.333% - 1rem);">
+              <div class="product-image-container">
+                <div class="product-badge" style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);">Value Pack</div>
+                <img src="assets/images/multiple-cards-new.webp" alt="TapStar Premium Pack - 3 Cards">
+              </div>
+              
+              <div class="product-details">
+                <h3 class="product-title">Premium Pack</h3>
+                <div class="product-price">PKR 4,000</div>
+                <div class="product-rating">
+                  <span class="star">★</span> 4.8 <span class="reviews">(85 reviews)</span>
+                </div>
+                
+                <ul class="product-feature-list">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> 3x NFC Cards Included</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Multi-Location Support</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 2-3 Days Delivery</li>
+                </ul>
+                
+                <a href="https://wa.me/923274733604?text=Hello%20TapStar!%20I%20want%20to%20order%20the%20Premium%20Pack%203x%20Cards%20(PKR%204,000)." target="_blank" rel="noopener" class="product-order-btn">
+                  Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card reveal delay-4" style="flex: 0 0 calc(33.333% - 1rem);">
+              <div class="product-image-container">
+                <div class="product-badge" style="color: #ec4899; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.3);">Exclusive</div>
+                <img src="assets/images/hero-product.webp" alt="TapStar Custom Card">
+              </div>
+              
+              <div class="product-details">
+                <h3 class="product-title">Custom Design</h3>
+                <div class="product-price">PKR 2,500</div>
+                <div class="product-rating">
+                  <span class="star">★</span> 4.9 <span class="reviews">(45 reviews)</span>
+                </div>
+                
+                <ul class="product-feature-list">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Add Your Custom Logo</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Your Brand Colors</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 5-7 Days Production</li>
+                </ul>
+                
+                <a href="https://wa.me/923274733604?text=Hello%20TapStar!%20I%20want%20to%20order%20a%20Custom%20Design%20Card%20(PKR%202,500)." target="_blank" rel="noopener" class="product-order-btn">
+                  Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="products-grid">
-        <!-- Product 1 -->
-        <div class="product-card reveal delay-1">
-          <div class="product-image-container">
-            <div class="product-badge">Popular</div>
-            <img src="assets/images/new-card.webp" alt="TapStar NFC Review Card Standard">
-          </div>
-          
-          <div class="product-details">
-            <h3 class="product-title">NFC Review Card</h3>
-            <div class="product-price">PKR 1,500</div>
-            <div class="product-rating">
-              <span class="star">★</span> 4.9 <span class="reviews">(120 reviews)</span>
+  <!-- ═══════════ TESTIMONIALS MARQUEE ═══════════ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <h2 class="reveal font-serif">What Our Clients <span class="serif-word text-gold">Say</span></h2>
+      </div>
+    </div>
+    
+    <!-- Row 1 -->
+    <div class="marquee-wrapper">
+      <div class="marquee-track-reviews" id="marquee-row-1">
+        <!-- Review 1 -->
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop" alt="Ali Khan" class="review-avatar">
+            <div class="review-meta">
+              <span class="review-name">Ali Khan</span>
+              <span class="review-username">@alikhan</span>
             </div>
-            
-            <ul class="product-feature-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Tap & Scan Ready</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Boost Google Reviews</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 2-3 Days Delivery</li>
-            </ul>
-            
-            <a href="https://wa.me/923274733604?text=Hello%20TapStar!%20I%20want%20to%20order%20the%20NFC%20Review%20Card%20Standard%20(PKR%201,500)." target="_blank" rel="noopener" class="product-order-btn">
-              Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-            </a>
           </div>
+          <p class="review-body">"Our productivity has nearly doubled since onboarding. Automation features removed repetitive tasks, allowing our team to focus on building instead of managing operations."</p>
         </div>
-
-        <!-- Product 2 -->
-        <div class="product-card reveal delay-2">
-          <div class="product-image-container">
-            <div class="product-badge" style="color: #f59e0b; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3);">Best Seller</div>
-            <img src="assets/images/final-3d-card.webp" alt="TapStar NFC Card with Stand">
-          </div>
-          
-          <div class="product-details">
-            <h3 class="product-title">Card + Stand</h3>
-            <div class="product-price">PKR 2,000</div>
-            <div class="product-rating">
-              <span class="star">★</span> 5.0 <span class="reviews">(250 reviews)</span>
+        <!-- Review 2 -->
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop" alt="Fatima Zahra" class="review-avatar">
+            <div class="review-meta">
+              <span class="review-name">Fatima Zahra</span>
+              <span class="review-username">@fatimaz</span>
             </div>
-            
-            <ul class="product-feature-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Premium Counter Display</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Maximum Visibility</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 2-3 Days Delivery</li>
-            </ul>
-            
-            <a href="https://wa.me/923274733604?text=Hello%20TapStar!%20I%20want%20to%20order%20the%20Card%20%2B%20Stand%20(PKR%202,000)." target="_blank" rel="noopener" class="product-order-btn">
-              Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-            </a>
           </div>
+          <p class="review-body">"What surprised us most was how quickly our team adapted. Minimal learning curve, excellent documentation, and powerful features make it a must-have for modern businesses."</p>
         </div>
-
-        <!-- Product 3 -->
-        <div class="product-card reveal delay-3">
-          <div class="product-image-container">
-            <div class="product-badge" style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);">Value Pack</div>
-            <img src="assets/images/multiple-cards-new.webp" alt="TapStar Premium Pack - 3 Cards">
-          </div>
-          
-          <div class="product-details">
-            <h3 class="product-title">Premium Pack</h3>
-            <div class="product-price">PKR 4,000</div>
-            <div class="product-rating">
-              <span class="star">★</span> 4.8 <span class="reviews">(85 reviews)</span>
+        <!-- Review 3 -->
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop" alt="Omar Farooq" class="review-avatar">
+            <div class="review-meta">
+              <span class="review-name">Omar Farooq</span>
+              <span class="review-username">@omarfarooq</span>
             </div>
-            
-            <ul class="product-feature-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> 3x NFC Cards Included</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Multi-Location Support</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 2-3 Days Delivery</li>
-            </ul>
-            
-            <a href="https://wa.me/923274733604?text=Hello%20TapStar!%20I%20want%20to%20order%20the%20Premium%20Pack%203x%20Cards%20(PKR%204,000)." target="_blank" rel="noopener" class="product-order-btn">
-              Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-            </a>
           </div>
+          <p class="review-body">"This is easily one of the most reliable tools we’ve adopted. The UI is intuitive, integrations are seamless, and it saves us countless hours every week."</p>
         </div>
+      </div>
+    </div>
 
-        <!-- Product 4 -->
-        <div class="product-card reveal delay-4">
-          <div class="product-image-container">
-            <div class="product-badge" style="color: #ec4899; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.3);">Exclusive</div>
-            <img src="assets/images/hero-product.webp" alt="TapStar Custom Card">
-          </div>
-          
-          <div class="product-details">
-            <h3 class="product-title">Custom Design</h3>
-            <div class="product-price">PKR 2,500</div>
-            <div class="product-rating">
-              <span class="star">★</span> 4.9 <span class="reviews">(45 reviews)</span>
+    <!-- Row 2 (Reverse) -->
+    <div class="marquee-wrapper marquee-reverse" style="margin-top: 1.5rem;">
+      <div class="marquee-track-reviews" id="marquee-row-2">
+        <!-- Review 4 -->
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop" alt="Aisha Ahmed" class="review-avatar">
+            <div class="review-meta">
+              <span class="review-name">Aisha Ahmed</span>
+              <span class="review-username">@aishaa</span>
             </div>
-            
-            <ul class="product-feature-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Add Your Custom Logo</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Your Brand Colors</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 5-7 Days Production</li>
-            </ul>
-            
-            <a href="https://wa.me/923274733604?text=Hello%20TapStar!%20I%20want%20to%20order%20a%20Custom%20Design%20Card%20(PKR%202,500)." target="_blank" rel="noopener" class="product-order-btn">
-              Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-            </a>
           </div>
+          <p class="review-body">"Switching to this platform streamlined our entire workflow. Setup was effortless, performance improved instantly, and our team now ships features faster."</p>
+        </div>
+        <!-- Review 5 -->
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop" alt="Bilal Mustafa" class="review-avatar">
+            <div class="review-meta">
+              <span class="review-name">Bilal Mustafa</span>
+              <span class="review-username">@bilalm</span>
+            </div>
+          </div>
+          <p class="review-body">"We evaluated multiple solutions, but this stood out immediately. It’s fast, scalable, and thoughtfully designed for growing teams that need stability."</p>
+        </div>
+        <!-- Review 6 -->
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop" alt="Zainab Tariq" class="review-avatar">
+            <div class="review-meta">
+              <span class="review-name">Zainab Tariq</span>
+              <span class="review-username">@zainabt</span>
+            </div>
+          </div>
+          <p class="review-body">"Amazing experience! The support team is incredibly responsive, and the product itself has completely revolutionized how we handle our customer engagement."</p>
         </div>
       </div>
     </div>
@@ -559,7 +660,7 @@
   </footer>
 
   <!-- JavaScript -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
 
