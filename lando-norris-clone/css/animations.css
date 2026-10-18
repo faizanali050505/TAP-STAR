@@ -153,44 +153,6 @@
   100% { transform: scaleX(0); transform-origin: right; }
 }
 
-/* ─── QR Grid Build ─── */
-@keyframes qrBuild {
-  from {
-    opacity: 0;
-    transform: scale(0);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.scanme-qr-inner span {
-  animation: qrBuild 0.3s ease forwards;
-  opacity: 0;
-}
-
-.scanme-qr-inner span:nth-child(1) { animation-delay: 0.05s; }
-.scanme-qr-inner span:nth-child(2) { animation-delay: 0.07s; }
-.scanme-qr-inner span:nth-child(3) { animation-delay: 0.09s; }
-.scanme-qr-inner span:nth-child(4) { animation-delay: 0.11s; }
-.scanme-qr-inner span:nth-child(5) { animation-delay: 0.13s; }
-.scanme-qr-inner span:nth-child(6) { animation-delay: 0.15s; }
-.scanme-qr-inner span:nth-child(7) { animation-delay: 0.17s; }
-.scanme-qr-inner span:nth-child(8) { animation-delay: 0.19s; }
-.scanme-qr-inner span:nth-child(9) { animation-delay: 0.21s; }
-.scanme-qr-inner span:nth-child(10) { animation-delay: 0.23s; }
-.scanme-qr-inner span:nth-child(n+11) { animation-delay: 0.25s; }
-.scanme-qr-inner span:nth-child(n+22) { animation-delay: 0.3s; }
-.scanme-qr-inner span:nth-child(n+33) { animation-delay: 0.35s; }
-.scanme-qr-inner span:nth-child(n+44) { animation-delay: 0.4s; }
-.scanme-qr-inner span:nth-child(n+55) { animation-delay: 0.45s; }
-.scanme-qr-inner span:nth-child(n+66) { animation-delay: 0.5s; }
-.scanme-qr-inner span:nth-child(n+77) { animation-delay: 0.55s; }
-.scanme-qr-inner span:nth-child(n+88) { animation-delay: 0.6s; }
-.scanme-qr-inner span:nth-child(n+99) { animation-delay: 0.65s; }
-.scanme-qr-inner span:nth-child(n+110) { animation-delay: 0.7s; }
-
 /* ─── Hover Transition Enhancements ─── */
 
 

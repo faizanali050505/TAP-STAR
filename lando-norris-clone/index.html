@@ -8,6 +8,12 @@
   <meta property="og:title" content="TapStar — NFC Google Review Cards">
   <meta property="og:description" content="Boost your Google reviews instantly. Customers tap or scan to leave 5-star reviews.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/final-3d-card.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TapStar — NFC Google Review Cards">
+  <meta name="twitter:description" content="Boost your Google reviews instantly. Customers tap or scan to leave 5-star reviews.">
+  <meta name="twitter:image" content="assets/images/final-3d-card.webp">
+  <meta name="theme-color" content="#0A1628">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
@@ -20,14 +26,10 @@
 </head>
 <body>
 
-
-
-
-
   <!-- ═══════════ NAVIGATION ═══════════ -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo" aria-label="TapStar">
+      <a href="#hero" class="nav-logo" aria-label="TapStar Home">
         <img src="assets/images/tapstar-emblem.webp" alt="TapStar" class="nav-emblem">
       </a>
 
@@ -47,7 +49,7 @@
           </svg>
           Order
         </a>
-        <button class="nav-hamburger hide-desktop" aria-label="Toggle Menu">
+        <button class="nav-hamburger hide-desktop" aria-label="Toggle Menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -63,7 +65,8 @@
       <a href="#how-it-works" class="nav-menu-link">How <span class="font-serif-italic text-gold">It Works</span></a>
       <a href="#products" class="nav-menu-link"><span class="font-serif-italic text-gold">Products</span></a>
       <a href="#use-cases" class="nav-menu-link">Reviews</a>
-      <a href="https://wa.me/923274733604?text=Hello%20TapStar!%20I%20want%20to%20order%20an%20NFC%20Google%20Review%20Card." target="_blank" rel="noopener" class="nav-menu-link">Order <span class="font-serif-italic text-gold">Now</span></a>
+      <a href="#order" class="nav-menu-link">Order <span class="font-serif-italic text-gold">Cards</span></a>
+      <a href="https://wa.me/923274733604?text=Hello%20TapStar!%20I%20want%20to%20order%20an%20NFC%20Google%20Review%20Card." target="_blank" rel="noopener" class="nav-menu-link text-gold" style="font-size: var(--text-2xl); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; width: 100%; text-align: center;">WhatsApp Order ↗</a>
     </div>
   </div>
 
@@ -164,7 +167,7 @@
         <!-- Step 1 -->
         <div class="step-card reveal delay-1">
           <div class="step-card-image">
-            <img src="assets/images/step-1-tap.jpg" alt="Customer tapping phone on TapStar NFC card">
+            <img src="assets/images/step-1-tap.webp" alt="Customer tapping phone on TapStar NFC card" loading="lazy">
           </div>
           <div class="step-card-body">
             <div class="step-number">1</div>
@@ -175,7 +178,7 @@
         <!-- Step 2 -->
         <div class="step-card reveal delay-2">
           <div class="step-card-image">
-            <img src="assets/images/step-2-scan.jpg" alt="TapStar NFC card with QR code">
+            <img src="assets/images/step-2-scan.webp" alt="TapStar NFC card with QR code" loading="lazy">
           </div>
           <div class="step-card-body">
             <div class="step-number">2</div>
@@ -186,7 +189,7 @@
         <!-- Step 3 -->
         <div class="step-card reveal delay-3">
           <div class="step-card-image">
-            <img src="assets/images/step-3-grow.jpg" alt="Happy customer leaving a 5-star review">
+            <img src="assets/images/step-3-grow.webp" alt="Happy customer leaving a 5-star review" loading="lazy">
           </div>
           <div class="step-card-body">
             <div class="step-number">3</div>
@@ -396,21 +399,21 @@
             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop" alt="Ali Khan" class="review-avatar">
             <div class="review-meta">
               <span class="review-name">Ali Khan</span>
-              <span class="review-username">@alikhan</span>
+              <span class="review-username">Café Owner • Lahore</span>
             </div>
           </div>
-          <p class="review-body">"Our productivity has nearly doubled since onboarding. Automation features removed repetitive tasks, allowing our team to focus on building instead of managing operations."</p>
+          <p class="review-body">"Our Google reviews jumped from 45 to over 380 in two months! Customers tap the card while waiting for their takeaway coffee — it’s effortless and boosted our Google Maps rank."</p>
         </div>
         <!-- Review 2 -->
         <div class="review-card">
           <div class="review-header">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop" alt="Fatima Zahra" class="review-avatar">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop" alt="Dr. Fatima Zahra" class="review-avatar">
             <div class="review-meta">
-              <span class="review-name">Fatima Zahra</span>
-              <span class="review-username">@fatimaz</span>
+              <span class="review-name">Dr. Fatima Zahra</span>
+              <span class="review-username">Dental Clinic • Karachi</span>
             </div>
           </div>
-          <p class="review-body">"What surprised us most was how quickly our team adapted. Minimal learning curve, excellent documentation, and powerful features make it a must-have for modern businesses."</p>
+          <p class="review-body">"Patients used to promise to review us at home but forgot. With TapStar on the reception counter, they leave a 5-star review in 10 seconds before walking out."</p>
         </div>
         <!-- Review 3 -->
         <div class="review-card">
@@ -418,10 +421,10 @@
             <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop" alt="Omar Farooq" class="review-avatar">
             <div class="review-meta">
               <span class="review-name">Omar Farooq</span>
-              <span class="review-username">@omarfarooq</span>
+              <span class="review-username">Auto Studio • Islamabad</span>
             </div>
           </div>
-          <p class="review-body">"This is easily one of the most reliable tools we’ve adopted. The UI is intuitive, integrations are seamless, and it saves us countless hours every week."</p>
+          <p class="review-body">"The best marketing investment we made this year. We have one card at checkout and one in the lounge. Our rating shot from 4.1 to 4.9 stars with 150+ new reviews."</p>
         </div>
       </div>
     </div>
@@ -435,10 +438,10 @@
             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop" alt="Aisha Ahmed" class="review-avatar">
             <div class="review-meta">
               <span class="review-name">Aisha Ahmed</span>
-              <span class="review-username">@aishaa</span>
+              <span class="review-username">Beauty Lounge • Lahore</span>
             </div>
           </div>
-          <p class="review-body">"Switching to this platform streamlined our entire workflow. Setup was effortless, performance improved instantly, and our team now ships features faster."</p>
+          <p class="review-body">"Clients love how modern and sleek the gold card looks on our counter. One tap on their iPhone or Android and our review page pops right up. Completely transformed our online presence."</p>
         </div>
         <!-- Review 5 -->
         <div class="review-card">
@@ -446,10 +449,10 @@
             <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop" alt="Bilal Mustafa" class="review-avatar">
             <div class="review-meta">
               <span class="review-name">Bilal Mustafa</span>
-              <span class="review-username">@bilalm</span>
+              <span class="review-username">The Grill House • Rawalpindi</span>
             </div>
           </div>
-          <p class="review-body">"We evaluated multiple solutions, but this stood out immediately. It’s fast, scalable, and thoughtfully designed for growing teams that need stability."</p>
+          <p class="review-body">"Our staff presents the TapStar stand with the bill. Diners are happy to tap and review their food experience right away. We now outrank all local competitor restaurants."</p>
         </div>
         <!-- Review 6 -->
         <div class="review-card">
@@ -457,10 +460,10 @@
             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop" alt="Zainab Tariq" class="review-avatar">
             <div class="review-meta">
               <span class="review-name">Zainab Tariq</span>
-              <span class="review-username">@zainabt</span>
+              <span class="review-username">Fashion Boutique • Karachi</span>
             </div>
           </div>
-          <p class="review-body">"Amazing experience! The support team is incredibly responsive, and the product itself has completely revolutionized how we handle our customer engagement."</p>
+          <p class="review-body">"Super fast 2-day delivery across Pakistan! Build quality is top-notch and setup was instant. Every retail business owner needs to get TapStar for their counter."</p>
         </div>
       </div>
     </div>
@@ -658,6 +661,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating Quick-Order WhatsApp Button -->
+  <a href="https://wa.me/923274733604?text=Hello%20TapStar!%20I%20want%20to%20order%20an%20NFC%20Google%20Review%20Card." target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Order on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="floating-whatsapp-icon">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+    </svg>
+    <span class="floating-whatsapp-text">Order on WhatsApp</span>
+  </a>
 
   <!-- JavaScript -->
   <script src="js/main.js" defer></script>

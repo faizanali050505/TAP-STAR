@@ -12,43 +12,89 @@ document.addEventListener('DOMContentLoaded', () => {
     body.classList.add('page-loaded');
   });
 
-  // ─── Navbar Scroll Glassmorphism ───
+  // ─── Navbar Scroll Glassmorphism & Floating WhatsApp Reveal ───
   const nav = document.querySelector('.nav');
+  const heroSection = document.querySelector('.hero');
+  const floatingWhatsapp = document.querySelector('.floating-whatsapp');
 
-  window.addEventListener('scroll', () => {
+  const handleScrollEffects = () => {
     const scrollY = window.scrollY;
 
-    // Glass effect on scroll
-    if (scrollY > 30) {
+    // Glass effect on navbar
+    if (scrollY > 25) {
       nav.classList.add('is-scrolled');
     } else {
       nav.classList.remove('is-scrolled');
     }
-  }, { passive: true });
+
+    // Floating WhatsApp button: hidden in Hero, visible after scrolling past Hero
+    if (floatingWhatsapp) {
+      const heroBottom = heroSection ? heroSection.getBoundingClientRect().bottom : -1;
+      if (heroBottom <= 120) {
+        floatingWhatsapp.classList.add('is-visible');
+      } else {
+        floatingWhatsapp.classList.remove('is-visible');
+      }
+    }
+  };
+
+  window.addEventListener('scroll', handleScrollEffects, { passive: true });
+  handleScrollEffects();
 
   // ─── Mobile Hamburger Menu ───
   const hamburger = document.querySelector('.nav-hamburger');
   const menuOverlay = document.querySelector('.nav-menu-overlay');
 
   if (hamburger && menuOverlay) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('is-open');
-      menuOverlay.classList.toggle('is-open');
+    const closeMenu = () => {
+      hamburger.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      menuOverlay.classList.remove('is-open');
+      body.style.overflow = '';
+    };
 
+    const openMenu = () => {
+      hamburger.classList.add('is-open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      menuOverlay.classList.add('is-open');
+      body.style.overflow = 'hidden';
+    };
+
+    hamburger.addEventListener('click', () => {
       if (menuOverlay.classList.contains('is-open')) {
-        body.style.overflow = 'hidden';
+        closeMenu();
       } else {
-        body.style.overflow = '';
+        openMenu();
       }
     });
 
+    // Close on link click
     const menuLinks = menuOverlay.querySelectorAll('.nav-menu-link');
     menuLinks.forEach(link => {
       link.addEventListener('click', () => {
-        hamburger.classList.remove('is-open');
-        menuOverlay.classList.remove('is-open');
-        body.style.overflow = '';
+        closeMenu();
       });
+    });
+
+    // Close on clicking backdrop
+    menuOverlay.addEventListener('click', (e) => {
+      if (e.target === menuOverlay) {
+        closeMenu();
+      }
+    });
+
+    // Close on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuOverlay.classList.contains('is-open')) {
+        closeMenu();
+      }
+    });
+
+    // Reset overflow if resized to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 991 && menuOverlay.classList.contains('is-open')) {
+        closeMenu();
+      }
     });
   }
 
@@ -73,12 +119,21 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const targetId = anchor.getAttribute('href');
-      if (targetId === '#') return;
+      
+      if (targetId === '#' || targetId === '#hero') {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        return;
+      }
+
       const target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
-        const navHeight = nav ? nav.offsetHeight : 0;
-        const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
+        const navOffset = nav ? (nav.getBoundingClientRect().height + 24) : 70;
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY - navOffset;
         window.scrollTo({
           top: targetPosition,
           behavior: 'smooth'
@@ -115,16 +170,20 @@ document.addEventListener('DOMContentLoaded', () => {
         counterObserver.unobserve(el);
       }
     });
-  }, { threshold: 0.4 });
+  }, { threshold: 0.15 });
 
   counters.forEach(el => counterObserver.observe(el));
 
   // ─── 3D Interactive Card Tilt (Desktop) ───
-  const heroSection = document.querySelector('.hero');
   const heroCardWrap = document.querySelector('.hero-image-wrap');
 
   if (heroSection && heroCardWrap && window.matchMedia('(hover: hover)').matches) {
     let ticking = false;
+
+    // Reset animation-fill-mode interference once page entrance completes
+    heroCardWrap.addEventListener('animationend', () => {
+      heroCardWrap.style.animation = 'none';
+    }, { once: true });
 
     heroSection.addEventListener('mousemove', (e) => {
       if (!ticking) {
@@ -154,63 +213,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const productCards = document.querySelectorAll('.product-card');
   if (window.matchMedia('(hover: hover)').matches) {
     productCards.forEach(card => {
+      let tiltTicking = false;
+
       card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = `translateY(-8px) perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
+        if (!tiltTicking) {
+          requestAnimationFrame(() => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            card.style.transform = `translateY(-8px) perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
+            tiltTicking = false;
+          });
+          tiltTicking = true;
+        }
       });
+
       card.addEventListener('mouseleave', () => {
         card.style.transform = '';
       });
-    });
-  }
-
-  // ─── Fake QR Pattern Generator with Deterministic Finder Eyes ───
-  const qrGrid = document.querySelector('.scanme-qr-inner');
-  if (qrGrid) {
-    const size = 11;
-    const pattern = [];
-
-    for (let i = 0; i < size * size; i++) {
-      const row = Math.floor(i / size);
-      const col = i % size;
-
-      // Corner squares (standard QR finder patterns)
-      const isTopLeft = (row < 3 && col < 3);
-      const isTopRight = (row < 3 && col >= size - 3);
-      const isBottomLeft = (row >= size - 3 && col < 3);
-
-      const isCornerBorder = (
-        (row === 0 || row === 2) && col < 3 ||
-        (row < 3) && (col === 0 || col === 2) ||
-        (row === 0 || row === 2) && col >= size - 3 ||
-        (row < 3) && (col === size - 1 || col === size - 3) ||
-        (row === size - 1 || row === size - 3) && col < 3 ||
-        (row >= size - 3) && (col === 0 || col === 2)
-      );
-
-      const isCornerCenter = (
-        (row === 1 && col === 1) ||
-        (row === 1 && col === size - 2) ||
-        (row === size - 2 && col === 1)
-      );
-
-      if (isCornerBorder || isCornerCenter) {
-        pattern.push(true);
-      } else if (isTopLeft || isTopRight || isBottomLeft) {
-        pattern.push(false);
-      } else {
-        const hash = (row * 7 + col * 13 + row * col) % 5;
-        pattern.push(hash < 2);
-      }
-    }
-
-    qrGrid.innerHTML = '';
-    pattern.forEach(filled => {
-      const span = document.createElement('span');
-      if (!filled) span.classList.add('empty');
-      qrGrid.appendChild(span);
     });
   }
 
@@ -226,21 +246,21 @@ document.addEventListener('DOMContentLoaded', () => {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  // ─── Marquee Seamless Loop ───
+  // ─── Trusted Marquee Seamless Loop ───
   const marqueeTrack = document.querySelector('.marquee-track');
   if (marqueeTrack) {
     const items = marqueeTrack.innerHTML;
     marqueeTrack.innerHTML = items + items;
   }
 
-  // Seamless Loop for Testimonials
+  // ─── Testimonials Marquee Seamless Loop ───
   const reviewTracks = document.querySelectorAll('.marquee-track-reviews');
   reviewTracks.forEach(track => {
     const items = track.innerHTML;
     track.innerHTML = items + items;
   });
 
-  // ─── Products Carousel Logic ───
+  // ─── Products Carousel Logic (Accurate Offset, Responsive & Touch Swipe) ───
   const track = document.getElementById('products-track');
   const btnPrev = document.getElementById('prod-prev');
   const btnNext = document.getElementById('prod-next');
@@ -250,7 +270,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const items = track.children;
     const totalItems = items.length;
     
-    const getItemsToShow = () => window.matchMedia('(max-width: 768px)').matches ? 1 : 3;
+    const getItemsToShow = () => {
+      if (window.matchMedia('(max-width: 640px)').matches) return 1;
+      if (window.matchMedia('(max-width: 1024px)').matches) return 2;
+      return 3;
+    };
 
     const updateCarousel = () => {
       const itemsToShow = getItemsToShow();
@@ -258,14 +282,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentIndex > maxIndex) currentIndex = maxIndex;
       if (currentIndex < 0) currentIndex = 0;
 
-      track.style.transform = `translateX(-${currentIndex * (100 / itemsToShow)}%)`;
+      if (items.length > 0) {
+        const cardWidth = items[0].getBoundingClientRect().width;
+        const computedGap = parseFloat(window.getComputedStyle(track).gap) || 24;
+        const shift = currentIndex * (cardWidth + computedGap);
+        track.style.transform = `translateX(-${shift}px)`;
+      }
 
       btnPrev.disabled = currentIndex === 0;
-      btnNext.disabled = currentIndex === maxIndex;
-      btnPrev.style.opacity = currentIndex === 0 ? '0.5' : '1';
-      btnNext.style.opacity = currentIndex === maxIndex ? '0.5' : '1';
+      btnNext.disabled = currentIndex >= maxIndex;
+      btnPrev.style.opacity = currentIndex === 0 ? '0.35' : '1';
+      btnNext.style.opacity = currentIndex >= maxIndex ? '0.35' : '1';
       btnPrev.style.cursor = currentIndex === 0 ? 'not-allowed' : 'pointer';
-      btnNext.style.cursor = currentIndex === maxIndex ? 'not-allowed' : 'pointer';
+      btnNext.style.cursor = currentIndex >= maxIndex ? 'not-allowed' : 'pointer';
     };
 
     btnPrev.addEventListener('click', () => {
@@ -284,21 +313,52 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Responsive update on resize
-    window.addEventListener('resize', () => {
-      const currentItemsToShow = getItemsToShow();
-      if (currentItemsToShow === 1) {
-        Array.from(items).forEach(item => {
-          item.style.flex = '0 0 100%';
-        });
-      } else {
-        Array.from(items).forEach(item => {
-          item.style.flex = '0 0 calc(33.333% - 1rem)';
-        });
+    // Touch Swipe support for Mobile
+    let touchStartX = 0;
+    let isSwiping = false;
+
+    track.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      isSwiping = true;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+      if (!isSwiping) return;
+      isSwiping = false;
+      const touchEndX = e.changedTouches[0].clientX;
+      const diffX = touchStartX - touchEndX;
+      const itemsToShow = getItemsToShow();
+      const maxIndex = Math.max(0, totalItems - itemsToShow);
+
+      if (Math.abs(diffX) > 40) {
+        if (diffX > 0 && currentIndex < maxIndex) {
+          currentIndex++;
+          updateCarousel();
+        } else if (diffX < 0 && currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
       }
+    }, { passive: true });
+
+    // Responsive update on resize
+    const handleResize = () => {
+      const itemsToShow = getItemsToShow();
+      Array.from(items).forEach(item => {
+        if (itemsToShow === 1) {
+          item.style.flex = '0 0 100%';
+        } else if (itemsToShow === 2) {
+          item.style.flex = '0 0 calc(50% - 0.75rem)';
+        } else {
+          item.style.flex = '0 0 calc(33.333% - 1rem)';
+        }
+      });
       updateCarousel();
-    });
-    window.dispatchEvent(new Event('resize'));
+    };
+
+    window.addEventListener('resize', handleResize);
+    // Initial call to set sizes
+    handleResize();
   }
 
   console.log('⭐ TapStar — Tap. Scan. Grow. (Elevated & Fast)');
